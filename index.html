@@ -9,7 +9,6 @@
   </head>
   
   <body class="mixpanel-platform-body">
-    <h1>Hello world</h1>
     <div id="slider"></div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -20,7 +19,15 @@
     
     <script>
       // Run queries and display results here
-      $("#slider").dateRangeSlider();
+      $("#slider").dateRangeSlider({
+        bounds:{
+          min: moment().subtract(365, 'days').toDate(),
+          max: moment().toDate()
+        }});
+        range:{
+          min: {days: 2},
+          max: {days: 7}
+      });
       
     </script>
   </body>
