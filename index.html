@@ -19,6 +19,7 @@
     
     <script>
       // Run queries and display results here
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
       $("#slider").dateRangeSlider({
         bounds:{
           min: moment().subtract(365, 'days').toDate(),
@@ -31,7 +32,20 @@
         range:{
           min: {days: 30},
           max: {days: 100}
-        }
+        },
+        scales: [{
+      first: function(value){ return value; },
+      end: function(value) {return value; },
+      next: function(value){
+        var next = new Date(value);
+        return new Date(next.setMonth(value.getMonth() + 1));
+      },
+      label: function(value){
+        return months[value.getMonth()];
+      },
+      format: function(tickContainer, tickStart, tickEnd){
+        tickContainer.addClass("myCustomClass");
+      }
       });
       
     </script>
