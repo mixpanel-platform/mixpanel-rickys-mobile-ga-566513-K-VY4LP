@@ -19,13 +19,13 @@
     
     <script>
       // Run queries and display results here
-      var dateValues = $("#slider").dateRangeSlider({
+      $("#slider").dateRangeSlider({
         bounds:{min: moment().subtract(365, 'days').toDate(),max: moment().toDate()},
         defaultValues:{min: moment().subtract(30, 'days').toDate(),max: moment().toDate()},
         range:{min: {days: 30},max: {days: 100}}
       });
       
-      //var dateValues = $("#dateSlider").dateRangeSlider("values");
+      var dateValues = $("#slider").dateRangeSlider("values");
       console.log(dateValues.min.toString() + " " + dateValues.max.toString());
       
     </script>
